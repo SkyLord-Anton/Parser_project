@@ -20,7 +20,7 @@ Data = date
 
 with sqlite3.connect("database.db") as db:
     cursor = db.cursor()
-# Values как список для будущего расширения базы данных, опционально (поэтому там "executemany"
+# Values как список для будущего расширения базы данных, опционально (поэтому там "executemany")
     cursor.execute('''CREATE TABLE IF NOT EXISTS OurDatabase(id INTEGER PRIMARY KEY AUTOINCREMENT,
     Datestamp VARCHAR(30), Rate VARCHAR(30))''')
     values = [
