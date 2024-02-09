@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Генератор комплиментов на все случаи жизни</title>
+<meta charset="UTF-8">
+<meta name="description" content="Генератор комплиментов онлайн предоставит вам красивые комплименты. Есть простое API и возможность интеграции."/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="yandex-verification" content="6cc493c019945920" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://my.robolatoriya.com/static/loader.css'>
+<link rel="icon" type="image/png" href="favicon.png" />
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-bar,.footer,.content,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-list {font-size:200px}
+@media (max-width: 767px) {
+  .ord-form {margin:0!Important;width:100%!Important}  
+}
+ .top-text {text-align: left; font-size: 30px; color:#FEFCFC; margin:0; padding-bottom:0px; padding-top:38px; @media (max-width:1023px) {
+    text-align: left; font-size: 20px; color:#FEFCFC; margin:0; padding-bottom:0px; padding-top:28px;}
+  }
+
+.top-rectangle { width:100%;height:15.0vh; background: #11708A; @media (max-width: 1023px) {
+  width:100%;height:10.0vh; background: #11708A;}
+  }  
+</style>
+</head>
+<body>
+  <div class="top-rectangle w3-middle">
+    <div class="top-text w3-bottomleft">
+    <a href="index.php" class="w3-button">Главная</a>
+    <a href="about.php" class="w3-button">О сервисе</a>
+    <a href="about.php" class="w3-button">API</a>
+    </div>
+  </div>
+
+  <div class="w3-padding-48 ord-form" style="margin-left:20%;width:60%">
+    <div class="w3-container w3-card-4 w3-round-xlarge">
+
+    <h1>Инвестиционный Калькулятор</h1>
+
+    <h5 class="w3-padding-16">База данных создана в рамках проектной работы при поддержке АНО ДО "Роболатория", Гончаренко А.А. Обратившись к странице с данными, любой человек/организация сможет получить данные о ставке с суточной точностью. </h5>
+
+    <h3>API</h3>
+
+    <h5 class="w3-padding-16">Нужная информация получается через использование API (Application Programming Interface) программами разного рода. </h5>
+
+    <div class="w3-panel w3-light-gray w3-center w3-round-xlarge">
+      <h4>https://tools-api.robolatoriya.com/cbrfkeyrate</h4>
+    </div>
+
+    <h5 class="w3-padding-16">Первый метод представлен выше. Он отдаёт актуальное значение ключевой ставки на данный момент.</h5>
+
+    <h5 class="w3-padding-16">Второй метод даёт доступ ко всему массиву данных о ключевой ставке ЦБ РФ по датам.</h5>
+
+    <h5 class="w3-padding-16">Примечание: по прошествии времени, данных в таблице становится больше. У некоторых программ могут возникнуть проблемы в обработке данных, если они не оптимизированы под  работу с большими списками.</h5>
+ 
+    <div class="w3-panel w3-light-gray w3-center w3-round-xlarge">
+      <h4>https://tools-api.robolatoriya.com/cbrfkeyrate/all</h4>
+    </div>
+      <h5 class="w3-padding-16">Третий метод требует ввода двух переменных - "amount" и "months". С его помощью можно расчитать вашу общую и ежемесячную прибыль при инвестиции в "Роболаторию". В калькулятор можно также перейти по <a href="https://robolatoriya.com/invest/?ysclid=lrdkgq457l947719549">ссылке</a>.</h5>
+      <div class="w3-panel w3-light-gray w3-center w3-round-xlarge">
+		<h4>https://tools-api.robolatoriya.com/cbrfkeyrate/invest</h4>
+      </div>
+      
+    <hr>
+    <h3>Есть вопросы? Написать в "Роболаторию":</h3>
+    <a class="w3-button w3-border w3-border-blue w3-white w3-xlarge w3-round-xxlarge" href="https://t.me/martynovrobotics"><i class="fa fa-telegram-plane w3-text-blue"></i> Написать</a>
+    <a class="w3-button w3-border w3-border-green w3-white w3-xlarge w3-round-xxlarge" href="https://api.whatsapp.com/send/?phone=79776896272&text&app_absent=0"><i class="fa fa-whatsapp w3-text-green"></i> Написать</a>
+    <br>
+    <br>
+    </div>
+  </div>
+
+
+<?
+include 'footer.php';      
+?>
+
+</body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96124962, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96124962" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</html>
