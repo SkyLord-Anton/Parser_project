@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ключевая ставка ЦБ РФ</title>
+  
+<meta charset="UTF-8">
+<meta name="description" content="Демоверсия Базы данных ЦБ РФ"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="yandex-verification" content="6cc493c019945920" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://my.robolatoriya.com/static/loader.css'>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-bar,.footer,.content,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-list {font-size:200px}
+@media (max-width: 1023px) {
+  .ord-form {margin:0!Important;width:100%!Important}  
+}
+  .top-text {text-align: left; font-size: 30px; color:#FEFCFC; margin:0; padding-bottom:0px; padding-top:38px; @media (max-width:1023px) {
+    text-align: left; font-size: 20px; color:#FEFCFC; margin:0; padding-bottom:0px; padding-top:28px;}
+  }
+html { }
+body { min-height: 100vh;
+  width:100%;}
+.top-rectangle { width:100%;height:15.0vh; background: #11708A; @media (max-width: 1023px) {
+  width:100%;height:10.0vh; background: #11708A;}
+  }
+
+.datapanel {height: 30vh; background: #EEF3EF; width: 60%; margin-left: 400px; margin-top:100px; @media (max-width:1023px) {
+    height: 20vh; background: #EEF3EF; width: 80%; margin-left: 40px; margin-top:50px;}}
+  
+.Datapanel {height: 50vh; background: #CED6DC; width: 60%; margin:auto; @media (max-width:1023px) {
+  height: 20vh; background: #B7C3CE; width: 80%; margin-top:50px; margin:auto}}
+
+  
+  .container {margin-top:10px;}
+  .rowbutton { 
+  display: inline-block;
+  padding: 15px 40px;
+  text-align: center
+  font-size: 25px;
+  cursor:pointer;
+  border: 2px solid #11708A;
+    background-color: #EEF3EF; margin: 10px;}
+  
+ 
+  </style>
+</head>
+<body>
+  <div class="top-rectangle w3-middle">
+    <div class="top-text w3-bottomleft">
+    <a href="index.php" class="w3-button">Главная</a>
+    <a href="about.php" class="w3-button">О сервисе</a>
+    <a href="about.php" class="w3-button">API</a>
+    </div>
+  </div>
+  <? 
+   $date = strtotime("today");
+   $date7 = strtotime("-7 day");
+   $date30 = strtotime("-1 month");
+   $date365 = strtotime("-1 year");
+   $date7=date('Y-m-d', $date7);
+   $date30=date('Y-m-d', $date30);
+   $date365=date('Y-m-d', $date365);
+   $date=date('Y-m-d', $date);
+  ?>
+  <div id="app">
+    <div class="w3-light-gray w3-display-container" id="home">
+      <div class="w3-row-padding w3-padding-64 w3-center">
+        <h1 class="w3-margin w3-jumbo">{{ rate }}%</h1>
+        <h3>ключевая ставка ЦБ РФ сегодня</h3>
+        <a class="w3-button w3-amber w3-round-xxlarge w3-padding-large w3-xlarge w3-margin-top" onclick="showhide(mydiv)"><b>Смотреть график!</b></a>
+      </div>
+    </div>
+    
+    <!-- Second Grid -->
+	<div class="w3-row-padding w3-white w3-padding-32 w3-container" id="about">
+  	<div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Открытое API</h1>
+      <h4 class="w3-padding-32">Наш сервис предоставляет открытое API, благодаря которому вы можете получать в реальном времени данные о текущем значении ставки ЦБ.</h4>
+      <a href="/about.php" class="w3-white w3-button w3-round-xxlarge w3-xlarge w3-border w3-hover-gray w3-left">Попробовать бесплатно</a>
+    </div>
+    <div class="w3-third w3-center">
+      <i class="fa fa-rocket w3-padding-16 w3-text-amber w3-margin-right" style="font-size:250px;"></i>
+    </div>
+  	</div>
+	</div>
+    
+    <div class="w3-center" id="graph">
+      <div class="container">
+        <button class="w3-button rowbutton" @click="getData(<? echo "'{$date7}'"; ?>,<? echo "'{$date}'"; ?>)">Неделя</button>
+        <button class="w3-button rowbutton" @click="getData(<? echo "'{$date30}'"; ?>,<? echo "'{$date}'"; ?>)">Месяц</button>
+        <button class="w3-button rowbutton" @click="getData(<? echo "'{$date365}'"; ?>,<? echo "'{$date}'"; ?>)">Год</button>
+      </div>
+    
+    <div class="w3-center">
+          <div id="chart_div" class="chart" style="height: 300px"></div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+<?
+   include 'footer.php';
+?>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<script type="text/javascript" src="./app.js?1"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96124962, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96124962" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
