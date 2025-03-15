@@ -3,7 +3,7 @@ import requests
 import pymysql as mq
 import datetime
 
-http_proxy = "#####"
+http_proxy = "######"
 # Данные скрыты по просьбе заказчика
 proxies = {
   			"https" :  http_proxy,
